@@ -12,9 +12,9 @@ In the examples below, we are using different repositories and projects. You sho
 
 ## **Accessing Bug Reports**
 
-Here are the steps to access the bug report template in your **GitHub Repository**. Ensure that you are filing issues in your project's repository
+Here are the steps to access the bug report template in your **GitHub Repository**. 
 
-1. Ensure that you are in your repository on GitHub by looking for the acronym for your project in the top left-hand corner. In the example below, we know we're in the repository for the Social and Economic Networks Project (SEN) since the link in the corner says sfu-dhil/sen. You can also confirm you're in your repository by looking at the About block on the right hand side. <br><br> If you're unsure about how to locate your repository, you can email [dhil-projects@sfu.ca](mailto:dhil-projects@sfu.ca) and we can provide you with the link.
+1. Ensure that you are in your repository on GitHub by looking for the acronym for your project in the top left-hand corner. In the example below, we know we're in the repository for the Social and Economic Networks Project (SEN) since the link in the corner says `sfu-dhil/sen`. You can also confirm you're in your repository by looking at the About block on the right hand side. <br><br> If you're unsure about how to locate your repository, you can email [dhil-projects@sfu.ca](mailto:dhil-projects@sfu.ca) and we can provide you with the link.
  
 1.  Click on **Issues**:
 ![screenshots/bug_image2.png](screenshots/bug_image2.png)
@@ -34,13 +34,21 @@ Below are some examples of how you might answer the questions. Please note that 
 
 ### Report Title
 
-Create a short but descriptive title for the bug report. Here is an example of a good bug report title: “Error accessing the book search page”
+Create a short but descriptive title for the bug report. 
+ 
+**Example**:
+ 
+ > Error accessing the book search page
 
 ### What isn’t working as expected on the website? 
+
+**Example**:
 
 >  When I add new information to an existing record in the database, I can only see this new information in the website’s backend. I can’t see it in the search results.
 
 ### If you encountered an error message, please copy the relevant details or take a screenshot and paste it below. (Type NA if not applicable.)
+
+**Example**:
 
 > ![screenshots/bug_image3.png](screenshots/bug_image3.png)
 
@@ -56,6 +64,8 @@ Create a short but descriptive title for the bug report. Here is an example of a
 
 ### What is the URL of the page where you encountered the bug? [Type NA if not applicable.]
 
+**Example**:
+
 > https://womensprinthistoryproject.com/title/
 
 **Tips**
@@ -63,6 +73,8 @@ Create a short but descriptive title for the bug report. Here is an example of a
 * If you are unable to share the full URL (i.e. if your project is currently private), you can also just include the last part of the URL following the main website's URL (i.e. /title/772 rather than http://mywebsite.com/title/772)
 
 ### What steps did you take before you encountered the bug?
+
+**Example**:
 
 > 1. Clicked on “Database” in the top header menu and click “Title search”
 > 1. Typed in “Records of Woman” and hit “search”
@@ -77,6 +89,8 @@ Create a short but descriptive title for the bug report. Here is an example of a
 * If the problem wasn’t triggered by a specific action, try to describe what you were doing before you noticed the problem  happening.
 
 ### What browser, operating system, and device were you using when you encountered the error?
+
+**Example**:
 
 > Chrome (updated), Windows 10, desktop
 

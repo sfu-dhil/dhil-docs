@@ -1,32 +1,40 @@
+---
+layout: default
+title: Bug Reporting Guidelines
+---
+
 # Bug Reporting Guidelines
 
 This document explains the process for reporting bugs in GitHub.
 
+1. Table of Contents
+{:toc}
+
 DHIL projects are collaborative endeavours that require support and contributions from both end users and the project community (developers, PIs, RAs, librarians). To help developers quickly identify and resolve issues with projects, please provide descriptive details of bugs in your reports that you submit on Github**.
 
-## **What’s a Bug?**
+## What’s a Bug?
 
 A bug is something unexpected that occurs when you use the website. It can be a challenge to figure out if the bug is related to the design or structure of the website or if it’s something related to the user’s operating system or device. That’s why we have a template for reporting bugs that contains several questions.
 
 In the examples below, we are using different repositories and projects. You should use your own project repository for reporting issues. The DHIL will provide you with the address for your repository.
 
-## **Accessing Bug Reports**
+## Accessing Bug Reports
 
 Here are the steps to access the bug report template in your **GitHub Repository**. 
 
 1. Ensure that you are in your repository on GitHub by looking for the acronym for your project in the top left-hand corner. In the example below, we know we're in the repository for the Social and Economic Networks Project (SEN) since the link in the corner says `sfu-dhil/sen`. You can also confirm you're in your repository by looking at the About block on the right hand side. <br><br> If you're unsure about how to locate your repository, you can email [dhil-projects@sfu.ca](mailto:dhil-projects@sfu.ca) and we can provide you with the link.
  
 1.  Click on **Issues**:
-![screenshots/bug_image2.png](screenshots/bug_image2.png)
+![screenshots/bug_image2.png]({{ "assets/screenshots/bug_image2.png" | relative_url }})
 
 1.  Click on **New Issue**:
-![screenshots/bug_image5.png](screenshots/bug_image5.png)
+![screenshots/bug_image5.png]({{ "assets/screenshots/bug_image5.png" | relative_url }})
 
 1. Click on **Bug Report: Get Started**
-![screenshots/bug_image1.png](screenshots/bug_image1.png)
+![screenshots/bug_image1.png]({{ "assets/screenshots/bug_image1.png" | relative_url }})
 
 1. You will arrive at this page:
-![screenshots/bug_image4.png](screenshots/bug_image4.png)
+![screenshots/bug_image4.png]({{ "assets/screenshots/bug_image4.png" | relative_url }})
 
 ## Writing a Bug Report
 
@@ -50,7 +58,7 @@ Create a short but descriptive title for the bug report.
 
 **Example**:
 
-> ![screenshots/bug_image3.png](screenshots/bug_image3.png)
+> ![screenshots/bug_image3.png]({{ "assets/screenshots/bug_image3.png" | relative_url }})
 
 **Tips**:
  
@@ -60,7 +68,7 @@ Create a short but descriptive title for the bug report.
  the example below, an error occurred without generating an error
  page:
 
-> ![screenshots/bug_image6.png](screenshots/bug_image6.png)
+> ![screenshots/bug_image6.png]({{ "assets/screenshots/bug_image6.png" | relative_url }})
 
 ### What is the URL of the page where you encountered the bug? [Type NA if not applicable.]
 

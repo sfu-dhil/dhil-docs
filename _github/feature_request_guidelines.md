@@ -1,3 +1,9 @@
+---
+layout: default
+title: Feature Request Guidelines
+---
+
+
 # Feature Request Guidelines
 
 This document explains the process for requesting a feature in GitHub.
@@ -12,11 +18,11 @@ Here are the steps to access the bug report template in your **GitHub Repository
 
 1. Ensure that you are in your repository on GitHub by looking for the acronym for your project in the top left-hand corner. In the example below, we know we're in the repository for the Social and Economic Networks Project (SEN) since the link in the corner says `sfu-dhil/sen`. You can also confirm you're in your repository by looking at the About block on the right hand side. <br><br> If you're unsure about how to locate your repository, you can email [dhil-projects@sfu.ca](mailto:dhil-projects@sfu.ca) and we can provide you with the link.
 1.  Click on **Issues**:<br><br>
-![screenshots/bug_image2.png](screenshots/bug_image2.png)
+![screenshots/bug_image2.png]({{ "assets/screenshots/bug_image2.png" | relative_url }})
 1.  Click on **New Issue**:<br><br>
-![screenshots/bug_image5.png](screenshots/bug_image5.png)
+![screenshots/bug_image5.png]({{ "assets/screenshots/bug_image5.png" | relative_url }})
 1. Click on **Feature Request: Get Started**:<br><br>
-![screenshots/bug_image1.png](screenshots/feature_request_image1.png)
+![screenshots/bug_image1.png]({{ "assets/screenshots/feature_request_image1.png" | relative_url }})
 1. You will arrive at this page:<br><br>
 [[ NEED SCREENSHOT]]
 

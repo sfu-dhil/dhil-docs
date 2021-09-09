@@ -153,65 +153,7 @@ layout: table_wrappers
           {{ content }}
         {% endif %}
 
-
-        {% comment %}
-        This is a bit of a hack in order to make sure the collection
-        variable is properly written
-        {% endcomment %}
-        {% assign tocMade = 0 %}
-        {% if page.title == 'Index' %}
-          {% capture n %}
-            {% include nav.html pages=curr_collection %}
-          {% endcapture %}
-          {% for node in pages_list %}
-            {%- if node.parent == nil and node.has_children == true -%}
-            {% assign tocMade = tocMade | plus: 1 %}
-              <hr/>
-              <h2>
-                <a href="{{ node.url | absolute_url }}" class="text-delta">{{ node.title }}</a>
-              </h2>
-              <ul>
-                {%- assign children_list = pages_list | where: "parent", node.title -%}
-                {% for child in children_list %}
-                <li>
-                  <a href="{{ child.url | absolute_url }}">{{ child.title }}</a>
-                </li>
-                {% endfor %}
-              </ul>
-           {% endif %}
-          {% endfor %}
-        {% endif %}
-        {% if page.title == 'Index' and tocMade == 0 %}
-          {%- assign currDocs = curr_collection -%}
-          {% capture nonce %}
-            {% include nav.html pages=currDocs %}
-          {% endcapture %}
-          <hr/>
-          <h2 class="text-delta">Table of contents</h2>
-          <ul>
-            {% for node in pages_list %}
-            {% assign tocMade = tocMade | plus: 1 %}
-            {% unless node.nav_exclude == true %}
-              <li>
-                <a href="{{ node.url | absolute_url }}">{{ node.title }}</a>
-              </li>
-            {% endunless %}
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% if page.has_children == true and page.has_toc != false and tocMade == 0 %}
-          {%- assign currDocs = curr_collection | where: "parent", page.title  -%}
-          {% include nav.html pages=currDocs %}
-        <hr>
-          <h2 class="text-delta">Table of contents</h2>
-          <ul>
-            {% for child in children_list %}
-              <li>
-                <a href="{{ child.url | absolute_url }}">{{ child.title }}</a>{% if child.summary %} - {{ child.summary }}{% endif %}
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+        {% include index_toc.html %}
 
         {% capture footer_custom %}
           {%- include footer_custom.html -%}

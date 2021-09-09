@@ -1,11 +1,11 @@
 --
 layout: default
-title: Getting Started
+title: Introduction
 parent: Getting Started
 nav_order: 1
 --
 
-# Getting Started
+# Introduction
 
 This guide assumes you are setting up a development environment for use
 in the Digital Humanities Innovation Lab on a Mac. There are many

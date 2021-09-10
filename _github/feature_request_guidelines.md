@@ -8,6 +8,9 @@ title: Feature Request Guidelines
 
 This document explains the process for requesting a feature in GitHub.
 
+1. Table of contents
+{:toc}
+
 ## What's a Feature?
 
 A feature is a specific functionality that you would like your projec t to have. A Feature Request is how you ask for a completely new feature (fixes to existing functionality should be filed as a [Bug](bug_guidelines.md). Features are usually described in the project proposal, but may also arise organically as the project progresses. Our feature request template contains several questions that will help us understand your request and get it right. Please try to be as specific as possible.
@@ -44,7 +47,7 @@ A clear and concise description of this feature. Please describe what the featur
 
 > New podcast episodes should include an option for uploading a PDF version of the transcription. 
 
-### How will this feature enhance your project and further the project's overall goals? Who will benefit from this feature (i.e. all users; th e project team)?***
+### How will this feature enhance your project and further the project's overall goals? Who will benefit from this feature (i.e. all users; th e project team)?
 
 A concise statement about the importance of the feature and the impact it should have on your project.
 

@@ -37,7 +37,7 @@
 .todo{
   @include callout('to do');
   &:before{
-    @extend .label-red;
+    @extend .label-yellow;
   }
 }
 

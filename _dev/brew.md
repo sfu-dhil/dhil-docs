@@ -45,10 +45,11 @@ right place. It may ask for your administrator password, and that's OK.
 Once it's installed, Homebrew provides the `brew` command which is the
 primary way to interact with the package manager. For example, to see a
 list of all the installed packages use `brew list`:
-
+```console
     $ brew list
     ant       freetds     libidn2     ncftp       saxon
     (and many many more)
+```
 
 This list will be empty if you haven't installed any commands yet.
 

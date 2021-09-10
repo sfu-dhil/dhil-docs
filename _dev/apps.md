@@ -99,11 +99,7 @@ something else for a different project.[1]
 
     <div class="note">
 
-    <div class="title">
-
-    Note
-
-    </div>
+    
 
     If you're a pleb without access to port 80:
     <http://localhost:8080/ceww/web/app_dev.php>

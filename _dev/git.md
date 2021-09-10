@@ -119,11 +119,7 @@ directory. To open it, return to the command line.
 
 <div class="note">
 
-<div class="title">
 
-Note
-
-</div>
 
 In the next example, the public key file is named `id_rsa.pub`. It is
 perfectly safe to distribute this key to the world. There's also a file
@@ -167,11 +163,7 @@ should help you get an app set up. But to quickly summarize:
 
 <div class="note">
 
-<div class="title">
 
-Note
-
-</div>
 
 So far we haven't been working in git branches in the DHIL, but we
 really should. The documentation below assumes you are working in the

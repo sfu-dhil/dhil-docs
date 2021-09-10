@@ -12,7 +12,7 @@ $ brew install python
 ```
 
 That may take some time. By default Homebrew installs Python v3.x. This
-is the version you want for installing and runing Sphinx.
+is the version you want for installing and running Sphinx.
 
 2.  Use python's package manager to install Sphinx
 
@@ -34,7 +34,7 @@ The documentation will then be available in `build/html/index.html`.
 Some projects have been configured to output the documentation to the
 `web/docs/` directory.
 
-<div class="seealso">
+<div class="note">
 
 For more information, check out the [First Steps with
 Sphinx](http://www.sphinx-doc.org/en/stable/tutorial.html)
@@ -43,12 +43,6 @@ documentation.
 </div>
 
 <div class="note">
-
-<div class="title">
-
-Note
-
-</div>
 
 If you are using the [Atom](https://atom.io/) editor with the
 [ReStructuredText Preview

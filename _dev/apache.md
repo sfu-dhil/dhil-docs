@@ -37,31 +37,16 @@ The apache config file is /usr/local/etc/httpd/httpd.conf. Open it in a
 text editor and make the following changes.
 
 <div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
 If you don't have access to port 80, maybe because the people that
 control things don't want to give out that kind of access, skip this
 step. Make sure that you take note of the fact that you skipped the
 step. Jump down to "Change where Apache will find documents."
-
 </div>
 
 1.  `Listen 8080`  
     Change this to `Listen 80`.
 
     <div class="note">
-
-    <div class="title">
-
-    Note
-
-    </div>
-
     If you don't have access to port 80, maybe because the people that
     control things don't want to give out that kind of access, skip this
     step. Make sure that you take note of the fact that you skipped the
@@ -71,7 +56,6 @@ step. Jump down to "Change where Apache will find documents."
     which also listens on port 8080. If you need to run both Apache and
     eXist at the same time, make sure you change one of their
     configurations to listen on a different port.
-
     </div>
 
 2.  `User _www`  
@@ -86,15 +70,7 @@ Uncomment these lines by removing the '#' character.
     Also change **www.example.com:8080** to `localhost`
 
     <div class="note">
-
-    <div class="title">
-
-    Note
-
-    </div>
-
     If you skipped step 1, skip this step as well.
-
     </div>
 
 2.  `#LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so`  
@@ -104,7 +80,7 @@ Uncomment these lines by removing the '#' character.
 Change where Apache will find documents to serve. Find the DocumentRoot
 section of the configuration file. It will look like this:
 
-``` apacheconf
+```
 DocumentRoot "/usr/local/var/www"
 <Directory "/usr/local/var/www">
     #
@@ -138,7 +114,7 @@ DocumentRoot "/usr/local/var/www"
 Change it to the following. Changed lines are highlighted. Use your
 login in place of `username` on lines 1 and 2.
 
-``` apacheconf
+```
 DocumentRoot "/Users/username/Sites"
 <Directory "/Users/username/Sites">
     #
@@ -184,17 +160,9 @@ $ echo "<h1>Howdy do!</h1>" > ~/Sites/index.html
 ```
 
 <div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
 The tilde (`~`) character has special meaning: It represents your home
 directory. So \~/Sites is the Sites directory inside your home
 directory.
-
 </div>
 
 Once these changes are complete, you must restart Apache for them to
@@ -211,12 +179,6 @@ Now if you visit <http://localhost> you should see "Howdy do!" in the
 page.
 
 <div class="note">
-
-<div class="title">
-
-Note
-
-</div>
 
 If you skipped changing the port number to 80 above, you should visit
 <http://localhost:8080> instead.
@@ -249,12 +211,6 @@ Now you should be able to visit <http://localhost/info.php> to see some
 very useful information about your PHP installation.
 
 <div class="note">
-
-<div class="title">
-
-Note
-
-</div>
 
 Maybe you like to skip steps and should visit
 <http://localhost:8080/info.php> instead.

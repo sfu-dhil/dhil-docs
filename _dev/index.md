@@ -7,7 +7,7 @@ no_toc: true
 
 # Welcome to DHIL's Developer Documentation
 
-# Introduction
+## Introduction
 
 This guide assumes you are setting up a development environment for use
 in the Digital Humanities Innovation Lab on a Mac. There are many
@@ -22,11 +22,7 @@ welcome.
 ## Conventions
 
 <div class="sidebar">
-
-**More information**
-
 Some pages will contain additional information in a sidebar like this.
-
 </div>
 
 File paths are typeset in a `monotype` font in running text to
@@ -74,12 +70,6 @@ use the command line and the terminal.
 -   <https://code.tutsplus.com/tutorials/command-line-basics-and-useful-tricks-with-the-terminal--cms-29356>
 
 <div class="note">
-
-<div class="title">
-
-Note
-
-</div>
 
 OS X includes a usable terminal/command line program at
 `/Applications/Utilities/Terminal.app`. It's good enough for most

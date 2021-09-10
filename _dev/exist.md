@@ -52,11 +52,7 @@ the file, and restart eXistDb if you need to.
 
 <div class="note">
 
-<div class="title">
 
-Note
-
-</div>
 
 eXistDb listens on port 8080 by default. If you have installed
 `Apache <section-apache>` following the directions there it may also be

@@ -58,11 +58,10 @@ date.timezone = America/Vancouver
 
 Other recommended settings are:
 
-> -   `memory_limit = 128M` Change this to 256M or higher.
-> -   `html_errors = On` Change this to Off.
-> -   `post_max_size = 8M` Change this to 64M or higher.
-> -   `upload_max_filesize = 2M` Change this to 60M or higher. It should
->     be less than the value of `post_max_size`.
+* `memory_limit = 128M` Change this to 256M or higher.
+* `html_errors = On` Change this to Off.
+* `post_max_size = 8M` Change this to 64M or higher.
+* `upload_max_filesize = 2M` Change this to 60M or higher. It should be less than the value of `post_max_size`.
 
 ## Test PHP
 

@@ -23,11 +23,7 @@ $ brew services start mysql@5.7
 
 <div class="note">
 
-<div class="title">
 
-Note
-
-</div>
 
 `@5.7` specifies which version of MySQL to install. If you leave that
 part out the command will install the most recent version, which may
@@ -82,14 +78,12 @@ $ mysql_secure_installation
 The `mysql_secure_installation` command will ask a few questions about
 configuring the MySQL server. Recommended settings include:
 
-> -   **Do not** install the Validate Password Plugin.
-> -   **Do** set a memorable password for the root account. Use a
->     password that is different from any other password you use to
->     login.
-> -   **Do** remote the anonymous users.
-> -   **Do not** allow remote users to login[2].
-> -   **Do** remove the test database and access to it.
-> -   **Do** reload the privilege tables.
+ -   **Do not** install the Validate Password Plugin.
+ -   **Do** set a memorable password for the root account. Use a  password that is different from any other password you use to login.
+ -   **Do** remote the anonymous users.
+ -   **Do not** allow remote users to login[2].
+ -   **Do** remove the test database and access to it.
+ -   **Do** reload the privilege tables.
 
 With these settings, only a user logged in to your computer can access
 the database, and must provide a password you assign to do so.
@@ -118,7 +112,7 @@ max_allowed_packet = 16M
 sql_mode="ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 ```
 
-Line 1 marks the configuratin as applying only to the MySQL server,
+Line 1 marks the configuration as applying only to the MySQL server,
 instead of the client or other programs.
 
 Line 2 prevents access to the server from outside of your computer.

@@ -59,6 +59,10 @@ search:
 # Enable or disable heading anchors
 heading_anchors: true
 
+compress_html:
+  ignore:
+    envs: all
+
 collections:
   dev:
     permalink: "/:collection/:path/"
@@ -81,6 +85,10 @@ just_the_docs:
 # Kramdown settings
 kramdown:
   parse_block_html: true
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
 
 
 

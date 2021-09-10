@@ -3,13 +3,9 @@ layout: default
 title: Feature Request Guidelines
 ---
 
-
 # Feature Request Guidelines
 
 This document explains the process for requesting a feature in GitHub.
-
-1. Table of contents
-{:toc}
 
 ## What's a Feature?
 

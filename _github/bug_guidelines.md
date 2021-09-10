@@ -7,9 +7,6 @@ title: Bug Reporting Guidelines
 
 This document explains the process for reporting bugs in GitHub.
 
-1. Table of contents
-{:toc}
-
 DHIL projects are collaborative endeavours that require support and contributions from both end users and the project community (developers, PIs, RAs, librarians). To help developers quickly identify and resolve issues with projects, please provide descriptive details of bugs in your reports that you submit on Github.
 
 ## What’s a Bug?

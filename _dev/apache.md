@@ -193,7 +193,7 @@ must add the PHP module to Apache.
 
 Add this text, as it is, to the httpd.conf file.
 
-``` apacheconf
+```
 LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
 <FilesMatch \\.php$>
   SetHandler application/x-httpd-php

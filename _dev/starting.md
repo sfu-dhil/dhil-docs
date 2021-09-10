@@ -1,9 +1,9 @@
---
+---
 layout: default
 title: Introduction
 parent: Getting Started
 nav_order: 1
---
+---
 
 # Introduction
 
@@ -46,12 +46,6 @@ Line 2 has the output from the command. It isn't prefixed with a dollar
 sign to indicate that it is output.
 
 <div class="note">
-
-<div class="title">
-
-Note
-
-</div>
 
 Warnings, notes, and other important information will be included in
 notes like this one.

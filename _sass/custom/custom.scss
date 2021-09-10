@@ -13,3 +13,43 @@
 #markdown-toc a{
   white-space: normal;
 }
+
+@mixin callout($content){
+  display:grid;
+  grid-template-columns: max-content auto;
+  align-items: baseline;
+  font-size: 0.9rem;
+  background: $feedback-color;
+  border: 2px dashed $feedback-color; 
+  padding: $sp-2 $sp-1;
+  color: $grey-dk-300;
+   &:before{
+    content: "#{$content}";
+    grid-column-start: 1;
+    margin-right: 1em;
+    @extend .label;
+  }
+  & > *{
+    grid-column-start: 2;
+  }
+}
+
+.todo{
+  @include callout('to do');
+  &:before{
+    @extend .label-red;
+  }
+}
+
+.note{
+  @include callout('note');
+  font-weight:bold;
+  &:before{
+    @extend .label-red;
+  }
+}
+
+.sidebar{
+  @include callout('NB');
+
+}

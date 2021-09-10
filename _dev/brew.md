@@ -13,8 +13,6 @@ developers. All interaction with Homebrew is via the command line.
 
 <div class="sidebar">
 
-**Hidden Directories**
-
 `/usr/local` and `/var` are hidden directories in OS X. They're
 available from the command line and can be made visible in the Finder,
 but this isn't usually necessary.

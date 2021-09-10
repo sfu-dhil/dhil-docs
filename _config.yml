@@ -78,6 +78,9 @@ just_the_docs:
       nav_exclude: false
       search_exclude: false
 
+# Kramdown settings
+kramdown:
+  parse_block_html: true
 
 
 

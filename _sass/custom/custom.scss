@@ -1,38 +1,24 @@
+@import 'mixins';
 
-.debug{
-  position:absolute;
-  width:80vw;
-  min-height:50vh;
-  top:50%;
-  left:50%;
-  background:#efefef;
-  color:black;
-  transform: translate(-50%, -50%)
+// Override text color
+
+body{
+  color: darken($body-text-color, 15%);
 }
 
+// Fix for table of contents line wrapping
 #markdown-toc a{
   white-space: normal;
 }
 
-@mixin callout($content){
-  display:grid;
-  grid-template-columns: max-content auto;
-  align-items: baseline;
-  font-size: 0.9rem;
-  background: $feedback-color;
-  border: 2px dashed $feedback-color; 
-  padding: $sp-2 $sp-1;
-  color: $grey-dk-300;
-   &:before{
-    content: "#{$content}";
-    grid-column-start: 1;
-    margin-right: 1em;
-    @extend .label;
-  }
-  & > *{
-    grid-column-start: 2;
-  }
+blockquote{
+  padding-left: 1em;
+  margin-left: 1em;
+  border-left: 0.33em solid $purple-000	
 }
+
+
+// Custom HTML blocks
 
 .todo{
   @include callout('to do');
@@ -53,3 +39,18 @@
   @include callout('NB');
 
 }
+
+// Debugging message 
+.debug{
+  position:absolute;
+  width:80vw;
+  min-height:50vh;
+  top:50%;
+  left:50%;
+  background:#efefef;
+  color:black;
+  transform: translate(-50%, -50%)
+}
+
+
+

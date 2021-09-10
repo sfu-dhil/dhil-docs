@@ -2,6 +2,7 @@
 layout: default
 permalink: /dev/
 nav_exclude: true
+no_toc: true
 ---
 
 # Welcome to DHIL's Developer Documentation

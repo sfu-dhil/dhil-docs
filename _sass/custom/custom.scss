@@ -1,0 +1,56 @@
+@import 'mixins';
+
+// Override text color
+
+body{
+  color: darken($body-text-color, 15%);
+}
+
+// Fix for table of contents line wrapping
+#markdown-toc a{
+  white-space: normal;
+}
+
+blockquote{
+  padding-left: 1em;
+  margin-left: 1em;
+  border-left: 0.2em solid rgba($purple-000, 0.33);
+}
+
+
+// Custom HTML blocks
+
+.todo{
+  @include callout('to do');
+  &:before{
+    @extend .label-yellow;
+  }
+}
+
+.note{
+  @include callout('note');
+  font-weight:bold;
+  &:before{
+    @extend .label-red;
+  }
+}
+
+.sidebar{
+  @include callout('NB');
+
+}
+
+// Debugging message 
+.debug{
+  position:absolute;
+  width:80vw;
+  min-height:50vh;
+  top:50%;
+  left:50%;
+  background:#efefef;
+  color:black;
+  transform: translate(-50%, -50%)
+}
+
+
+

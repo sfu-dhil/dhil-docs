@@ -7,7 +7,7 @@ body{
 }
 
 // Fix for table of contents line wrapping
-#markdown-toc a{
+.toc a{
   white-space: normal;
 }
 

@@ -67,6 +67,9 @@ collections:
   github:
     permalink: "/:collection/:path/"
     output: true
+  symfony:
+    permalink: "/:collection/:path/"
+    output: true
 
 just_the_docs:
   collections:
@@ -76,6 +79,10 @@ just_the_docs:
       search_exclude: false
     github:
       name: "Using GitHub"
+      nav_exclude: false
+      search_exclude: false
+    symfony:
+      name: "Symfony Admin"
       nav_exclude: false
       search_exclude: false
 

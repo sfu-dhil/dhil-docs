@@ -48,8 +48,8 @@ You can now edit `$HOME/.gitignore_global` to make sure git ignores some
 files.
 
 ``` ini
-*~
-*.log
+    *~
+    *.log
 ```
 
 This setup will ignore any file that ends in a tilde (\~) and any log

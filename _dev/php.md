@@ -17,11 +17,11 @@ installing other versions of PHP is possible and quite easy. See below
 for more information.
 
 ``` console
-$ brew install php pkg-config imagemagick composer
+$ brew install php@7.4 pkg-config imagemagick composer yarn php-cs-fixer
 $ pecl install imagick
 ```
 
-Line 1 installs PHP and friends. The install command will print a lot of
+Line 1 installs PHP and friends. The `install` command will print a lot of
 information to the terminal which you can mostly ignore. It will also
 install a PHP package manager called `pecl` which we will use in step 2.
 
@@ -34,7 +34,7 @@ path to the imagemagick library. Press enter to accept the default
 
 The pecl install step (line 4 above) will automatically configure PHP to
 find the imagick extension. Other configuration options are available in
-`/usr/local/etc/php/7.2/php.ini`
+`/usr/local/etc/php/7.4/php.ini`
 
 You must set the timezone in the `php.ini` file. Open the file in your
 text editor, and find the `[Date]` section.
@@ -70,9 +70,10 @@ work and print useful things. If you try these commands and get an error
 message, something has gone wrong in the installation.
 
 ``` console
-$ php --version
-PHP 7.2.6 (cli) (built: Jun 22 2018 00:08:38)
-(and less useful output)
+PHP 7.4.23 (cli) (built: Aug 27 2021 09:18:37) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Zend OPcache v7.4.23, Copyright (c), by Zend Technologies
 
 [14:02:03][michael@sophie devenv]$ php -m
 [PHP Modules]

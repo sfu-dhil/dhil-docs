@@ -17,7 +17,7 @@ be hidden and "Login" will be displayed in its place.
 
 ![screenshots/symfony/user-menu.png]({{ "assets/screenshots/symfony/user-menu.png" | relative_url }})
 
-All users can access this menu to update your own profile and password, or to 
+All users can access this menu to update their own profile and password, or to 
 log out. If you have the appropriate permissions, you will also be able to 
 manage users with the item at the bottom.
 

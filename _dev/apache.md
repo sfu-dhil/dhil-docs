@@ -243,12 +243,13 @@ ServerRoot: "/usr/local/opt/httpd"
 (and many more lines)
 ```
 
-Start, stop, or restart the web server.
+Commands to Start, stop, or restart the web server are below. If you do not 
+have permissions to use sudo, don't include it.
 
 ``` console
-$ sudo apachectl start
-$ sudo apachectl stop
-$ sudo apachectl restart
+$ sudo brew services start httpd
+$ sudo brew services stop httpd
+$ sudo brew services restart httpd
 ```
 
 **Footnotes**

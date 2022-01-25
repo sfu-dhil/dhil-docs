@@ -31,30 +31,30 @@ something else for a different project.[1]
 3. Create a database and database user in mysql. These are sample
     commands.
 
-     ``` console
-     $ mysql
-    CREATE DATABASE doceww;
-    CREATE USER doceww@localhost IDENTIFIED BY 'abc123';
-    GRANT ALL ON doceww.* TO doceww@localhost;
-    ```
+``` console
+$ mysql
+CREATE DATABASE doceww;
+CREATE USER doceww@localhost IDENTIFIED BY 'abc123';
+GRANT ALL ON doceww.* TO doceww@localhost;
+```
 
 4. Install the composer dependencies. These are PHP packages and
     libraries that provide functionality like database connectivity and
     logging and many other good things.
 
-     ``` console
-     $ composer install
-     ```
+``` console
+$ composer install
+```
 
     Sometimes Composer runs out of memory. If that happens, try this
     alternate.
 
-     ``` console
-     $ php -d memory_limit=-1 `which composer` install
-     ```
+``` console
+$ php -d memory_limit=-1 `which composer` install
+```
 
 5. Update file permissions if needed. If you followed the directions in
-    the `section-apache` section this should not be necessary.
+    the [Apache]({{site.baseurl}}{% link _dev/apache.md %}) section this should not be necessary.
 
     The user running the web server must be able to write to these 
     directories:
@@ -70,19 +70,24 @@ something else for a different project.[1]
    may need to give additional permissions to the file upload
    directory. Check the documentation.
 
-6. Install the yarn dependencies. These are javascript and CSS
-    packages like Bootstrap.[2]
+6. Install the yarn dependencies. These are javascript and CSS packages like Bootstrap.
 
-   ``` console
-    $ yarn
-   ```
+```console
+$ yarn
+yarn install v1.22.17
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+✨  Done in 10.36s.
+```
 
-7. Load the schema into the database. This is done with the Symfony
+8. Load the schema into the database. This is done with the Symfony
     console.
 
-     ``` console
-     $ ./bin/console doctrine:schema:update --force
-     ```
+``` console
+$ ./bin/console doctrine:schema:update --force
+```
 
 8. At this point, the web interface should be up and running, and you
     should be able to load some pages. The URL for the app should be
@@ -96,10 +101,10 @@ something else for a different project.[1]
 9. Create an application user with full admin privileges. This is also
    done with the Symfony console.
 
-    ``` console
-    $ ./bin/console fos:user:create admin@example.com
-    $ ./bin/console fos:user:promote admin@example.com ROLE_ADMIN
-    ```
+``` console
+$ ./bin/console fos:user:create admin@example.com
+$ ./bin/console fos:user:promote admin@example.com ROLE_ADMIN
+```
 
    You should now be able to login to the app by following the Login
    link in the top right corner of any application page.

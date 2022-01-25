@@ -9,36 +9,24 @@ nav_order: 4
 
 There are many versions of MySQL available via Homebrew, and they are
 mostly compatible with each other and with our production server. This
-document describes installing MySQL version 5.7, because that's what we
-have elsewhere. If that version doesn't work, feel free to try another
-version.
+document describes installing the MariaDB fork of MySQL, because that's 
+what we have elsewhere. If that version doesn't work, feel free to try 
+another version. 
 
 ## Installation
 
 ``` console
-$ brew install mysql@5.7
-$ brew link mysql@5.7 --force
-$ brew services start mysql@5.7
+$ brew install mariadb
+$ brew services start mariadb
 ```
 
-<div class="note">
+Line 1 above installs MariaDB.
 
-
-
-`@5.7` specifies which version of MySQL to install. If you leave that
-part out the command will install the most recent version, which may
-lead to problems later.
-
-</div>
-
-Line 1 above installs MySQL.
-
-Line 2 tells brew to make sure that the mysql commands are linked and
-available at the command line. If we hadn't included a version number in
-line 1, line 2 wouldn't be necessary.
-
-Line 3 enables MySQL as a background service and registers it to start
+Line 2 enables it as a background service and registers it to start
 automatically at login.
+
+In the remainder of this documentation, we will use MariaDB
+and MySQL interchangeably.
 
 Now it's time to test the installation.
 
@@ -49,18 +37,16 @@ $ mysql -u root
 This should start a MySQL console in the terminal that looks something
 like this:
 
-    Welcome to the MySQL monitor.  Commands end with ; or \g.
-    Your MySQL connection id is 4
-    Server version: 5.7.22 Homebrew
-
-    Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-
-    Oracle is a registered trademark of Oracle Corporation and/or its
-    affiliates. Other names may be trademarks of their respective
-    owners.
-
+    $ mysql -u root
+    Welcome to the MariaDB monitor.  Commands end with ; or \g.
+    Your MariaDB connection id is 47
+    Server version: 10.6.4-MariaDB Homebrew
+    
+    Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+    
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-    mysql>
+    
+    [10:05:13][root@localhost] (none) >
 
 The `mysql>` line is the command prompt. MySQL is waiting for a command
 at that prompt. Type `ctrl-d`[1] to exit the MySQL console and return to
@@ -78,7 +64,7 @@ $ mysql_secure_installation
 The `mysql_secure_installation` command will ask a few questions about
 configuring the MySQL server. Recommended settings include:
 
- -   **Do not** install the Validate Password Plugin.
+ -   **Do not** install the Validate Password plugin.
  -   **Do** set a memorable password for the root account. Use a  password that is different from any other password you use to login.
  -   **Do** remote the anonymous users.
  -   **Do not** allow remote users to login[2].
@@ -102,53 +88,56 @@ The recommended configuration is below.
 [mysqld]
 bind-address = 127.0.0.1
 socket = /tmp/mysql.sock
-log_error = /var/log/mysql/error.log
-log_error_verbosity = 2
 general_log = 0
-general_log_file = /var/log/mysql/mysql.log
+general_log_file = /usr/local/var/log/mysql/general.log
+log_error = /usr/local/var/log/mysql/error.log
+log_queries_not_using_indexes = 1
+log_warnings = 2
+lower_case_table_names = 2
+
 slow_query_log = 0
-slow_query_log_file = /var/log/mysql/slow.log
-max_allowed_packet = 16M
-sql_mode="ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+slow_query_log_file = /usr/local/var/log/mysql/slow.log
+
+sql_mode = "STRICT_ALL_TABLES,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_AUTO_VALUE_ON_ZERO,NO_ENGINE_SUBSTITUTION"
 ```
 
 Line 1 marks the configuration as applying only to the MySQL server,
 instead of the client or other programs.
 
-Line 2 prevents access to the server from outside of your computer.
+Line 2 prevents access to the server from outside your computer.
 
 Line 3 defines where mysql will listen for connections through its
 socket.
 
-Lines 4 & 5 enable the error log and set the error log location.
-
-Lines 6 & 7 disable the general log, but provide a default location for
+Lines 4 & 5 disable the general log, but provide a default location for
 it anyway. The general log has too much information for normal use, but
 can be useful for debugging.
 
-Lines 8 & 9 do the same thing for the slow query log. It's useful for
-tracking down problems when necessary but usually isn't necessary.
+Lines 6 to 8 enable the error log and set the error log location.
 
-Line 10 allows larger commands to be sent to MySQL. This is necessary
-for some of the database dumps which can get quite large.
+Line 9 makes sure table names are stored in lower case. Mixed case names
+are a problem in some operating systems.
 
-Line 11 sets the SQL server mode, which is fairly strict. It will
+Lines 11 & 12 do the same thing for the slow query log. It's useful for
+tracking down problems but usually isn't necessary.
+
+Line 14 sets the SQL server mode, which is fairly strict. It will
 prevent most common errors but also allow us to use dates with zeros in
 them like `1852-00-00` when the month and day are unknown.
 
-This configuration will send log files to `/var/log/mysql`. That
+This configuration will send log files to `/usr/local/var/log/mysql`. That
 directory doesn't exist, so create it and set the permissions on it now.
 
 ``` console
-$ sudo mkdir /var/log/mysql
-$ sudo chown USERNAME:staff /var/log/mysql
+$ sudo mkdir -p /usr/local/var/log/mysql
+$ sudo chown USERNAME:staff /usr/local/var/log/mysql
 ```
 
 Once the file is in place, MySQL will need to be restarted for the
 configuration to become active.
 
 ``` console
-$ brew services restart mysql@5.7
+$ brew services restart mariadb
 ```
 
 ## Make it easier to use
@@ -167,6 +156,7 @@ are some suggested contents with descriptions
 prompt=mysql \d >
 user=root
 password=abc123
+default_character_set=utf8
 ```
 
 Line 1 starts the `mysql` section. The options in this section will
@@ -175,8 +165,10 @@ apply to that command only.
 Line 2 adds the current database name to the command prompt in the MySQL
 console.
 
-Lines 3 and 4 set the connection parameters so you can connect without
+Lines 3 and 4 set the connection parameters, so you can connect without
 passing the username and password at the command line.
+
+Line 5 sets the character encoding to UTF-8. This keeps everything consistent.
 
 There's no need to restart MySQL after changing this file in your home
 directory.

@@ -18,31 +18,27 @@ The following instructions use the Database of Canada's Early Women
 Writers (ceww) project as an example. You may need to change `ceww` to
 something else for a different project.[1]
 
-1.  Log in to Github's website and create a fork of the project. There's
+1. Log in to Github's website and create a fork of the project. There's
     a "Fork" button in the project's repository page for this.
 
-2.  Clone your fork to your computer. The code below will fetch the
+2. Clone your fork to your computer. The code below will fetch the
     submodules and set them up correctly.
     
      ```console
      $ git clone --recursive git@github.com:USERNAME/ceww.git
      ```
     
-3.  Create a database and database user in mysql. These are sample
+3. Create a database and database user in mysql. These are sample
     commands.
 
      ``` console
      $ mysql
-     mysql> create user ceww@localhost;
-     mysql> create database ceww;
-     mysql> grant all on ceww.* to ceww@localhost;
-     mysql> set password for ceww@localhost = password('hotpockets');
-     ```
+    CREATE DATABASE doceww;
+    CREATE USER doceww@localhost IDENTIFIED BY 'abc123';
+    GRANT ALL ON doceww.* TO doceww@localhost;
+    ```
 
-    Composer will ask for the database name, database user name, and
-    database password in the next step.
-
-4.  Install the composer dependencies. These are PHP packages and
+4. Install the composer dependencies. These are PHP packages and
     libraries that provide functionality like database connectivity and
     logging and many other good things.
 
@@ -57,79 +53,63 @@ something else for a different project.[1]
      $ php -d memory_limit=-1 `which composer` install
      ```
 
-5.  Update file permissions if needed. If you followed the directions in
+5. Update file permissions if needed. If you followed the directions in
     the `section-apache` section this should not be necessary.
 
-    The user running the web server must be able to write to <span
-    class="title-ref">var/cache/\*</span> and <span
-    class="title-ref">var/logs/\*</span> and <span
-    class="title-ref">var/sessions/\*</span>. The symfony docs provide
-    [recommended
-    commands](http://symfony.com/doc/current/setup/file_permissions.html)
-    depending on your OS.
+    The user running the web server must be able to write to these 
+    directories:
+   1. var/cache
+   2. var/log
+   
+   The symfony docs provide
+       [recommended
+       commands](http://symfony.com/doc/current/setup/file_permissions.html)
+       depending on your OS.
 
-    And if you're working on an application that takes file uploads, you
-    may need to give additional permissions to the file upload
-    directory. Check the documentation.
+   And if you're working on an application that takes file uploads, you
+   may need to give additional permissions to the file upload
+   directory. Check the documentation.
 
-6.  Install the assets.
-
-     ``` console
-     $ ./bin/console ckeditor:install
-     $ ./bin/console assets:install --symlink
-     ```
-
-7.  Install the bower dependencies. These are javascript and CSS
+6. Install the yarn dependencies. These are javascript and CSS
     packages like Bootstrap.[2]
 
-     ``` console
-$ bower install
-     ```
+   ``` console
+    $ yarn
+   ```
 
-8.  Load the schema into the database. This is done with the Symfony
+7. Load the schema into the database. This is done with the Symfony
     console.
 
      ``` console
      $ ./bin/console doctrine:schema:update --force
      ```
 
-9.  At this point, the web interface should be up and running, and you
+8. At this point, the web interface should be up and running, and you
     should be able to load some pages. The URL for the app should be
-    something like <http://localhost/ceww/web/app_dev.php>
+    something like <http://localhost/ceww/public/>
 
     <div class="note">
-    
     If you're a pleb without access to port 80:
-    <http://localhost:8080/ceww/web/app_dev.php>
-
+    <http://localhost:8080/ceww/public/>
     </div>
 
-10. Create an application user with full admin privileges. This is also
-    done with the Symfony console.
+9. Create an application user with full admin privileges. This is also
+   done with the Symfony console.
 
-     ``` console
-     $ ./bin/console fos:user:create admin@example.com
-     $ ./bin/console fos:user:promote admin@example.com ROLE_ADMIN
-     ```
+    ``` console
+    $ ./bin/console fos:user:create admin@example.com
+    $ ./bin/console fos:user:promote admin@example.com ROLE_ADMIN
+    ```
 
-    You should now be able to login to the app by following the Login
-    link in the top right corner of any application page.
+   You should now be able to login to the app by following the Login
+   link in the top right corner of any application page.
 
-11. Build the documentation.
-
-     ``` console
-$ cd docs
-$ make html
-     ```
-
-12. Hack and slash your way through the code. The source code for
+10. Hack and slash your way through the code. The source code for
     symfony apps is very organized. Application configuration is in
-    `app/config`. Actual runnable source code is in `src/AppBundle`.
-    Tests for the code lives in `src/AppBundle/Tests`. There are also
-    some reusable bundles in `src/Nines` which should have come from a
-    git submodule.
+    `config`. Actual runnable source code is in `src`.
+    Tests for the code lives in `tests`.
 
-13. Run some tests. The composer dependencies include PHPUnit for
+11. Run some tests. The composer dependencies include PHPUnit for
     testing. The source code includes all the tests, and should always
     be runnable.
 
@@ -155,14 +135,24 @@ $ make html
     the file to `phpunit.xml` and configure as needed. Git will ignore
     the `phpunit.xml` file.
 
+12. Keep your code clean. Each Symfony includes a configuration file for PHP 
+    CS Fixer. It's a tool that parses PHP files and applies coding standards 
+    to them. It will tidy up any odd whitespace and check for common coding 
+    errors.
+
+    ```console
+    $ php-cs-fixer fix
+    Loaded config default from ".php-cs-fixer.dist.php".
+    Using cache file "var/cache/php_cs.cache".
+    1) src/Command/ExportBatchCommand.php
+    1) migrations/2021/09/Version20210910223644.php
+
+    Fixed all files in 5.137 seconds, 18.000 MB memory used
+    ```
+
 **Footnotes**
 
 [1] The repository name for the DoCEWW project is ceww for historical
 reasons. It should be doceww to be consistent with the proper name of
 the project. The name is consistent in the canonical URL:
 <https://dhil.lib.sfu.ca/doceww>
-
-[2] [Bower](https://bower.io/) is an old and deprecated system, that
-will probably eventually be unsupported. We should begin converting the
-apps to use [Yarn](https://yarnpkg.com/en/) instead of Bower as soon as
-possible.

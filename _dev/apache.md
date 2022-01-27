@@ -254,4 +254,4 @@ $ sudo brew services restart httpd
 
 **Footnotes**
 
-[1] Use the `whoami` command to find your username if you aren't sure.
+[^1]: Use the `whoami` command to find your username if you aren't sure.

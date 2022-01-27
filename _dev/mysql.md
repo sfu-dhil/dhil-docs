@@ -49,7 +49,7 @@ like this:
     [10:05:13][root@localhost] (none) >
 
 The `mysql>` line is the command prompt. MySQL is waiting for a command
-at that prompt. Type `ctrl-d`[1] to exit the MySQL console and return to
+at that prompt. Type `ctrl-d`[^1] to exit the MySQL console and return to
 your normal console.
 
 ## Make it secure
@@ -67,7 +67,7 @@ configuring the MySQL server. Recommended settings include:
  -   **Do not** install the Validate Password plugin.
  -   **Do** set a memorable password for the root account. Use a  password that is different from any other password you use to login.
  -   **Do** remote the anonymous users.
- -   **Do not** allow remote users to login[2].
+ -   **Do not** allow remote users to login[^2].
  -   **Do** remove the test database and access to it.
  -   **Do** reload the privilege tables.
 
@@ -201,7 +201,9 @@ those backups back into MySQL.
 
 **Footnotes**
 
-[1] `ctrl-d` means to hold down the control key and type d.
+[^1]: 
+    `ctrl-d` means to hold down the control key and type d.
 
-[2] The wording of the question in the command is a bit odd: "Disallow
-root login remotely?" Answer **y** to this question.
+[^2]: 
+    The wording of the question in the command is a bit odd:
+    "Disallow root login remotely?" Answer **y** to this question.

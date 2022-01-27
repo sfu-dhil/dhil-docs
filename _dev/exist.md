@@ -28,7 +28,7 @@ DHIL anything to use.
 The eXistDb developers distribute their software via
 [BinTray](https://bintray.com/existdb/releases/exist). The page lists a
 number of release versions. Navigate to the most recent stable
-release[1] and download the `-setup-VERSION.jar`. This will give you an
+release[^1] and download the `-setup-VERSION.jar`. This will give you an
 application that is easy to configure and run.
 
 Once the .jar file is finished downloading, double click on it and
@@ -98,6 +98,7 @@ visit
 
 **Footnotes**
 
-[1] The preview releases are usually named with a -RC suffix, like
-5.0.0-RC1. They *should* work fine, but may cause compatibility
-problems. Stick to the most recent, non-preview version.
+[^1]:
+    The preview releases are usually named with a -RC suffix, like 
+    5.0.0-RC1. They *should* work fine, but may cause compatibility 
+    problems. Stick to the most recent, non-preview version.

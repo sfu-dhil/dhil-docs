@@ -59,7 +59,7 @@ step. Jump down to "Change where Apache will find documents."
     </div>
 
 2.  `User _www`  
-    Change `_www` to your user name.[1]
+    Change `_www` to your user name.[^1]
 
 3.  `Group _www`  
     Change `_www` to `staff`.
@@ -254,4 +254,6 @@ $ sudo brew services restart httpd
 
 **Footnotes**
 
-[^1]: Use the `whoami` command to find your username if you aren't sure.
+[^1]: 
+    Use the `whoami` command to find your username if you 
+    aren't sure.

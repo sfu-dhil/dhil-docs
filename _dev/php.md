@@ -32,6 +32,24 @@ path to the imagemagick library. Press enter to accept the default
 
 ## Configuring
 
+<div class="sidebar">
+
+The instructions below assume you have installed
+homebrew in `/usr/local`, which is the default on Intel Mac computers. On
+newer M1-Macs, homebrew is installed in `/opt/homebrew`. It is also possible
+to install homebrew in other locations. To check where your homebrew is, run
+this command in the terminal:
+
+```shell
+$ brew --prefix
+/usr/local
+```
+
+If the output is _not_ `/usr/local`, you will need to adjust the
+instructions below to match your installation.
+
+</div>
+
 The pecl install step (line 4 above) will automatically configure PHP to
 find the imagick extension. Other configuration options are available in
 `/usr/local/etc/php/7.4/php.ini`

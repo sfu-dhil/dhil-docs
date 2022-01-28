@@ -13,7 +13,25 @@ developers. All interaction with Homebrew is via the command line.
 
 <div class="sidebar">
 
-`/usr/local` and `/var` are hidden directories in OS X. They're
+The instructions below assume you have installed 
+homebrew in `/usr/local`, which is the default on Intel Mac computers. On 
+newer M1-Macs, homebrew is installed in `/opt/homebrew`. It is also possible 
+to install homebrew in other locations. To check where your homebrew is, run 
+this command in the terminal:
+
+```shell
+$ brew --prefix
+/usr/local
+```
+
+If the output is _not_ `/usr/local`, you will need to adjust the
+instructions below to match your installation.
+
+</div>
+
+<div class="sidebar">
+
+`/opt/local`, `/usr/local` and `/var` are hidden directories in OS X. They're
 available from the command line and can be made visible in the Finder,
 but this isn't usually necessary.
 

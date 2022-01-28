@@ -48,19 +48,32 @@ something else for a different project.[^1]
     $ cp .env .env.local
     ```
 
-5. In `.env.local`, you should see the  `DATABASE_URL` field that has generic values:
+5. Determine your database server implementation and version, which you 
+   will need later, by running `mysql --version` at the command line. We 
+   recommend you [install the MariaDB]({{ site.baseurl}}{% link _dev/mysql.md %}) 
+   implementation of MySQL. The output for 
+   MariaDB will be something like this, which shows MariaDB version 10.6.4.
+
+    ```
+   $ mysql --version
+    mysql  Ver 15.1 Distrib 10.6.4-MariaDB, for osx10.16 (x86_64) using readline 5.1
+    ```
+
+6. In `.env.local`, you should see the  `DATABASE_URL` field that has generic values:
 
     ```text
     DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7
     ```
 
-    Replace `db_user` with the database user, `db_password` with the password, and `db_name` with the database's name:
+    Replace `db_user` with the database user, `db_password` with the password, 
+    and `db_name` with the database's name. You will also need to change the
+    `serverVersion`.
 
     ```text
-    DATABASE_URL=mysql://ceww:abc123@127.0.0.1:3306/ceww?serverVersion=5.7
+    DATABASE_URL=mysql://ceww:abc123@127.0.0.1:3306/ceww?serverVersion=10.6.4-mariadb
     ```
 
-6. In `.env.local`, change `ROUTE_HOST` to `localhost` and `ROUTE_BASE` to the project's base (usually
+7. In `.env.local`, change `ROUTE_HOST` to `localhost` and `ROUTE_BASE` to the project's base (usually
    something like `projectName/public`):
 
     ```text
@@ -140,26 +153,32 @@ server to access the data.
 4. Configure the deployment: In the project's repository, navigate to `config/deploy.yaml` and change 
    all of the `user` properties to your SFU id
 
-5. In the root of the project's repository, fetch the database backup:
+5. In the root of the project's repository, fetch the database backup. It 
+   comes in two parts, one file for the schema and one for the data.
 
     ```console
     $ dep dhil:db:fetch dhil
-    ➤ Executing task dhil:db:fetch
-    Downloaded database dump to ceww-2022-01-27-dhil-r75.sql
+    ➤ Executing task dhil:db:schema
+    Downloaded database dump to ceww-schema-2022-01-28-dhil-r116.sql
     ✔ Ok
+    ➤ Executing task dhil:db:data
+    Downloaded database dump to ceww-data-2022-01-28-dhil-r116.sql
+    ✔ Ok 
     ```
+
 
 6. Upload the data dump into mysql. If you've set fairly lax permissions locally, you can usually do
    this by doing something like:
     
    ```console
-    $ mysql ceww < ceww-2022-01-27-dhil-r75.sql
+    $ mysql ceww < ceww-schema-2022-01-28-dhil-r116.sql
+    $ mysql ceww < ceww-data-2022-01-28-dhil-r116.sql
     ```
 
    For larger projects, it's often useful to track the upload progress using `pv`:
 
     ```console
-    $ pv ceww-2022-01-27-dhil-r75.sql | mysql ceww
+    $ pv ceww-data-2022-01-28-dhil-r116.sql | mysql ceww
     768KiB 0:00:09 [0.00 B/s] [======>                            ] 20% ETA 0:00:35
     ```
 
@@ -178,8 +197,10 @@ server to access the data.
    done with the Symfony console.
 
     ``` console
-    $ ./bin/console fos:user:create admin@example.com
-    $ ./bin/console fos:user:promote admin@example.com ROLE_ADMIN
+    $ ./bin/console nines:user:create admin@example.com
+    $ ./bin/console nines:user:promote admin@example.com ROLE_ADMIN
+    $ ./bin/console nines:user:activate admin@example.com
+    $ ./bin/console nines:user:password admin@example.com supersecret
     ```
 
    You should now be able to login to the app by following the Login

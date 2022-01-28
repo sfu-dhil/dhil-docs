@@ -83,6 +83,24 @@ MySQL's configuration is complex, and can be defined in a number of
 different places, depending on which part of the server is being
 configured.
 
+<div class="sidebar">
+
+The instructions below assume you have installed
+homebrew in `/usr/local`, which is the default on Intel Mac computers. On
+newer M1-Macs, homebrew is installed in `/opt/homebrew`. It is also possible
+to install homebrew in other locations. To check where your homebrew is, run
+this command in the terminal:
+
+```shell
+$ brew --prefix
+/usr/local
+```
+
+If the output is _not_ `/usr/local`, you will need to adjust the
+instructions below to match your installation.
+
+</div>
+
 To configure the server, edit `/usr/local/etc/my.cnf` in your favourite
 text editor. The file may be empty, and might not even exist. That's OK.
 The recommended configuration is below.

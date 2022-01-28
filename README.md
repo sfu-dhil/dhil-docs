@@ -9,9 +9,9 @@ profile:
 
 
 ```bash
-## Ruby 
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+PFX=$(brew --prefix)
+if [ -d "$PFX/opt/ruby/bin" ]; then
+  export PATH=$PFX/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 ```
@@ -24,11 +24,18 @@ bundle config set --local path 'vendor/bundle'
 bundle install
 ````
 
-Since the site has some odd GitHub specific server configurations, 
-the easiest way to build the site is to serve it on its own:
+In most cases, the easiest way to build the site is to serve it on its own:
 
-```
-bundle exec jekyll serve
+```console
+$ bundle exec jekyll serve
 ```
 
-That will likely serve it on `localhost:4000/dhil-docs`
+You should be able to the view the site at this URL from the `Server address` 
+line in the output:
+
+``console
+Server address: http://127.0.0.1:4000/dhil-docs/
+``
+
+The server will stay open and site will update automatically until you close the connection (either by exiting
+the terminal window or `ctrl-c`).

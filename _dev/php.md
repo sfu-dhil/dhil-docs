@@ -16,10 +16,10 @@ The DHIL production server runs PHP 7, so we will install that.
 installing other versions of PHP is possible and quite easy. See below
 for more information.
 
-``` console
+{% highlight console linenos %}
 $ brew install php@7.4 pkg-config imagemagick composer yarn php-cs-fixer
 $ pecl install imagick
-```
+{% endhighlight %}
 
 Line 1 installs PHP and friends. The `install` command will print a lot of
 information to the terminal which you can mostly ignore. It will also
@@ -39,22 +39,22 @@ find the imagick extension. Other configuration options are available in
 You must set the timezone in the `php.ini` file. Open the file in your
 text editor, and find the `[Date]` section.
 
-``` ini
+{% highlight ini linenos %}
 [Date]
 ; Defines the default timezone used by the date functions
 ; http://php.net/date.timezone
 ;date.timezone =
-```
+{% endhighlight %}
 
 Uncomment line 4 by removing the semicolon at the start of the line,
 then add "America/Vancouver" to the end. The result should be
 
-``` ini
+{% highlight ini linenos %}
 [Date]
 ; Defines the default timezone used by the date functions
 ; http://php.net/date.timezone
 date.timezone = America/Vancouver
-```
+{% endhighlight %}
 
 Other recommended settings are:
 

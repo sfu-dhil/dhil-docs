@@ -15,10 +15,10 @@ is httpd.
 
 Install the basic Apache web server.
 
-``` console
+{% highlight console linenos %}
 $ brew install httpd
 $ sudo brew services start httpd
-```
+{% endhighlight %}
 
 Line 1 will install the server and configure the defaults for Apache to
 listen on port 8080. This is the same port that eXist-db will listen on
@@ -59,7 +59,7 @@ step. Jump down to "Change where Apache will find documents."
     </div>
 
 2.  `User _www`  
-    Change `_www` to your user name.[1]
+    Change `_www` to your user name.[^1]
 
 3.  `Group _www`  
     Change `_www` to `staff`.
@@ -80,7 +80,7 @@ Uncomment these lines by removing the '#' character.
 Change where Apache will find documents to serve. Find the DocumentRoot
 section of the configuration file. It will look like this:
 
-```
+{% highlight apacheconf linenos %}
 DocumentRoot "/usr/local/var/www"
 <Directory "/usr/local/var/www">
     #
@@ -108,13 +108,12 @@ DocumentRoot "/usr/local/var/www"
     # Controls who can get stuff from this server.
     #
     Require all granted
-</Directory>
-```
+{% endhighlight %}
 
 Change it to the following. Changed lines are highlighted. Use your
 login in place of `username` on lines 1 and 2.
 
-```
+{% highlight apacheconf linenos %}
 DocumentRoot "/Users/username/Sites"
 <Directory "/Users/username/Sites">
     #
@@ -144,7 +143,7 @@ DocumentRoot "/Users/username/Sites"
     #
     Require all granted
 </Directory>
-```
+{% endhighlight %}
 
 These changes will configure Apache to listen on port 80, which is the
 usual port for a web server. It will serve files from the `Sites`
@@ -254,4 +253,6 @@ $ sudo brew services restart httpd
 
 **Footnotes**
 
-[1] Use the `whoami` command to find your username if you aren't sure.
+[^1]: 
+    Use the `whoami` command to find your username if you 
+    aren't sure.

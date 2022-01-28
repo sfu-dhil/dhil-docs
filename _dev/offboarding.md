@@ -48,11 +48,11 @@ all packages using `brew upgrade`.
 MySQL runs as a background service. You must stop the background service
 before removing it.
 
-``` console
-$ brew services stop mysql@5.7
-$ brew uninstall --force mysql@5.7
+{% highlight console linenos %}
+$ brew services stop mysql
+$ brew uninstall --force mysql
 $ rm -rf /usr/local/var/mysql
-```
+{% endhighlight %}
 
 Line 1 stops the MySQL process and unloads it from memory. Line 2
 removes the MySQL server files, but does not remove any of the MySQL

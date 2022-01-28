@@ -13,7 +13,7 @@ They really do like their silly capitalization don't they?
 [eXistDb](http://exist-db.org/exist/apps/homepage/index.html) is a XML
 database. It's useful for storing documents and searching or processing
 them, especially if they don't really fit in a traditional SQL database.
-The Wilde Trials and any TEI project will use eXist as the storage
+The Wilde Trials and other TEI projects use eXist as the storage
 layer. It is open-source and freely available.
 
 [oXygen](https://www.oxygenxml.com/) is an XML editor with built-in
@@ -28,7 +28,7 @@ DHIL anything to use.
 The eXistDb developers distribute their software via
 [BinTray](https://bintray.com/existdb/releases/exist). The page lists a
 number of release versions. Navigate to the most recent stable
-release[1] and download the `-setup-VERSION.jar`. This will give you an
+release[^1] and download the `-setup-VERSION.jar`. This will give you an
 application that is easy to configure and run.
 
 Once the .jar file is finished downloading, double click on it and
@@ -51,9 +51,6 @@ Change `enable-java-binding="no"` to `enable-java-binding="yes"`, save
 the file, and restart eXistDb if you need to.
 
 <div class="note">
-
-
-
 eXistDb listens on port 8080 by default. If you have installed
 `Apache <section-apache>` following the directions there it may also be
 listening on port 8080. Only one program can listen on a port at a time,
@@ -63,7 +60,7 @@ eXistDb to listen on another port.
 To change eXistDb's port, open
 `/Applications/eXist-db/tools/jetty/etc/jetty-http.xml` and change the
 port number on line 38. In the examples below, line breaks and
-indentation have beeb added to improve readability.
+indentation have been added to improve readability.
 
 ``` xml
 <Set name="port">
@@ -74,7 +71,6 @@ indentation have beeb added to improve readability.
   </Property>
 </Set>
 ```
-
 </div>
 
 ## Using eXistDb
@@ -98,6 +94,7 @@ visit
 
 **Footnotes**
 
-[1] The preview releases are usually named with a -RC suffix, like
-5.0.0-RC1. They *should* work fine, but may cause compatibility
-problems. Stick to the most recent, non-preview version.
+[^1]:
+    The preview releases are usually named with a -RC suffix, like 
+    4.0.0-RC1. They *should* work fine, but may cause compatibility 
+    problems. Stick to the most recent, non-preview version.

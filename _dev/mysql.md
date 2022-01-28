@@ -15,10 +15,10 @@ another version.
 
 ## Installation
 
-``` console
+{% highlight console linenos %}
 $ brew install mariadb
 $ brew services start mariadb
-```
+{% endhighlight %}
 
 Line 1 above installs MariaDB.
 
@@ -37,19 +37,22 @@ $ mysql -u root
 This should start a MySQL console in the terminal that looks something
 like this:
 
-    $ mysql -u root
-    Welcome to the MariaDB monitor.  Commands end with ; or \g.
-    Your MariaDB connection id is 47
-    Server version: 10.6.4-MariaDB Homebrew
+```console
+$ mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 47
+Server version: 10.6.4-MariaDB Homebrew
+  
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+   
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
     
-    Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-    
-    Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-    
-    [10:05:13][root@localhost] (none) >
+[10:05:13][root@localhost] (none) >
+```
+
 
 The `mysql>` line is the command prompt. MySQL is waiting for a command
-at that prompt. Type `ctrl-d`[1] to exit the MySQL console and return to
+at that prompt. Type `ctrl-d`[^1] to exit the MySQL console and return to
 your normal console.
 
 ## Make it secure
@@ -67,7 +70,7 @@ configuring the MySQL server. Recommended settings include:
  -   **Do not** install the Validate Password plugin.
  -   **Do** set a memorable password for the root account. Use a  password that is different from any other password you use to login.
  -   **Do** remote the anonymous users.
- -   **Do not** allow remote users to login[2].
+ -   **Do not** allow remote users to login[^2].
  -   **Do** remove the test database and access to it.
  -   **Do** reload the privilege tables.
 
@@ -84,7 +87,7 @@ To configure the server, edit `/usr/local/etc/my.cnf` in your favourite
 text editor. The file may be empty, and might not even exist. That's OK.
 The recommended configuration is below.
 
-``` ini
+{% highlight ini linenos %}
 [mysqld]
 bind-address = 127.0.0.1
 socket = /tmp/mysql.sock
@@ -99,7 +102,7 @@ slow_query_log = 0
 slow_query_log_file = /usr/local/var/log/mysql/slow.log
 
 sql_mode = "STRICT_ALL_TABLES,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_AUTO_VALUE_ON_ZERO,NO_ENGINE_SUBSTITUTION"
-```
+{% endhighlight %}
 
 Line 1 marks the configuration as applying only to the MySQL server,
 instead of the client or other programs.
@@ -151,13 +154,13 @@ Use the editor of your choice to edit the file. It is divided up in to
 sections, with one section for each mysql command you configure. Here
 are some suggested contents with descriptions
 
-``` ini
+{% highlight ini linenos %}
 [mysql]
 prompt=mysql \d >
 user=root
 password=abc123
 default_character_set=utf8
-```
+{% endhighlight %}
 
 Line 1 starts the `mysql` section. The options in this section will
 apply to that command only.
@@ -201,7 +204,9 @@ those backups back into MySQL.
 
 **Footnotes**
 
-[1] `ctrl-d` means to hold down the control key and type d.
+[^1]: 
+    `ctrl-d` means to hold down the control key and type d.
 
-[2] The wording of the question in the command is a bit odd: "Disallow
-root login remotely?" Answer **y** to this question.
+[^2]: 
+    The wording of the question in the command is a bit odd:
+    "Disallow root login remotely?" Answer **y** to this question.

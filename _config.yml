@@ -60,6 +60,7 @@ compress_html:
   ignore:
     envs: all
 
+
 collections:
   dev:
     permalink: "/:collection/:path/"
@@ -86,12 +87,21 @@ just_the_docs:
       nav_exclude: false
       search_exclude: false
 
+markdown: kramdown
+
 # Kramdown settings
 kramdown:
   parse_block_html: true
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:
-      line_numbers: true
+     # Line numbers are off by default, but
+     # if you want a codeblock to be lineated
+     # replace the triple backticks with
+     # {% highlight [language] linenos %}
+     #    [[ code ]]
+     # {% endhighlight %}
+      line_numbers: false
 
 
 

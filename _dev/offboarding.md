@@ -49,8 +49,8 @@ MySQL runs as a background service. You must stop the background service
 before removing it.
 
 {% highlight console linenos %}
-$ brew services stop mysql@5.7
-$ brew uninstall --force mysql@5.7
+$ brew services stop mysql
+$ brew uninstall --force mysql
 $ rm -rf /usr/local/var/mysql
 {% endhighlight %}
 

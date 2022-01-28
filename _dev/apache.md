@@ -52,9 +52,9 @@ step. Jump down to "Change where Apache will find documents."
     step. Make sure that you take note of the fact that you skipped the
     step.
 
-    You should also note this if you work with `eXistDb <exist-label>`,
-    which also listens on port 8080. If you need to run both Apache and
-    eXist at the same time, make sure you change one of their
+    You should also note this if you work with [eXistDb]({{ site.baseurl }}{% 
+    link _dev/exist.md %}) which also listens on port 8080. If you need to run 
+    both Apache and eXist at the same time, make sure you change one of their
     configurations to listen on a different port.
     </div>
 

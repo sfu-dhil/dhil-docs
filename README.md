@@ -1,23 +1,31 @@
 # Documentation for the DHIL
 
-To build this documentation, first download Jekyll following the instructions here: https://jekyllrb.com/docs/installation/
+To build this documentation, first download Jekyll following the
+instructions here: https://jekyllrb.com/docs/installation/
 
-Note that on Mac OSX Big Sur (or higher), you may need to
-put your Gem directory in your $PATH:
+Mac OS comes with ruby already, but it may be prudent to have a higher version.
+In that case, you can `brew install ruby` and then add the following to your shell's
+profile:
+
 
 ```bash
-# In your  .bash_profile
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+## Ruby 
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
 ```
 
-Once installed, install the Jekyll dependencies:
-
+For safety's sake, you may want to set the bundler to put gems locally before
+doing a bundle install:
 ```bash
+# If you'd like to have the gems locally rather than globally
+bundle config set --local path 'vendor/bundle'
 bundle install
-```
+````
 
-Since the site has some odd GitHub specific server configurations, the easiest way to build the site is to serve it on its own:
+Since the site has some odd GitHub specific server configurations, 
+the easiest way to build the site is to serve it on its own:
 
 ```
 bundle exec jekyll serve

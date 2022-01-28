@@ -95,6 +95,12 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:
+     # Line numbers are off by default, but
+     # if you want a codeblock to be lineated
+     # replace the triple backticks with
+     # {% highlight [language] linenos %}
+     #    [[ code ]]
+     # {% endhighlight %}
       line_numbers: false
 
 

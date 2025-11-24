@@ -1,6 +1,8 @@
 ---
-layout: default
+layout: minimal
 ---
 
-# DHIL Documentation
-Documentation for the Digital Humanities Innovation Lab at SFU
+<!-- just redirect to privacy.html until we have more docs content -->
+<script>
+    window.location.replace("privacy.html");
+</script>

@@ -1,0 +1,10 @@
+services:
+  docs:
+    container_name: dhil_docs_watcher
+    build:
+      context: .
+    command: jekyll serve --watch --host 0.0.0.0
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/app

@@ -1,0 +1,31 @@
+name: Tagged Release
+
+on:
+  push:
+    tags:
+    - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build
+        run: |
+          bundle exec jekyll build --destination docs
+      - name: Release Assets
+        run: |
+          tar -czf dhil-docs-${{ github.ref_name }}.tar.gz docs
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dhil-docs-${{ github.ref_name }}.tar.gz

@@ -1,60 +1,51 @@
-@import 'mixins';
-
-// Override text color
-
-body{
-  color: darken($body-text-color, 15%);
+/*
+  Customizations/overrides
+ */
+body {
+    padding-bottom: 0 !important;
+}
+.main-content-wrap {
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
 }
 
-// Fix for table of contents line wrapping
-.toc a{
-  white-space: normal;
+.footer_sponsor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    & > .sshrc {
+        padding-right: 3em;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    & > .dhil {
+        img {
+            max-width: 14rem;
+        }
+        a {
+            &:hover {
+                img {
+                    filter: revert;
+                }
+            }
+            img {
+                filter: saturate(50%) sepia(70%);
+                transition: filter 0.3s ease-in-out;
+            }
+        }
+    }
 }
-
-.rouge-table{
-  min-width:unset;
+@media (max-width: 576px) {
+    .footer_sponsor {
+        display: block;
+        & > .sshrc {
+            padding-right: 0em !important;
+        }
+        & > .dhil {
+            padding-top: 1em !important;
+        }
+    }
 }
-
-blockquote{
-  padding-left: 1em;
-  margin-left: 1em;
-  border-left: 0.2em solid rgba($purple-000, 0.33);
-}
-
-
-// Custom HTML blocks
-
-.todo{
-  @include callout('to do');
-  &:before{
-    @extend .label-yellow;
-  }
-}
-
-.note{
-  @include callout('note');
-  font-weight:bold;
-  &:before{
-    @extend .label-red;
-  }
-}
-
-.sidebar{
-  @include callout('NB');
-
-}
-
-// Debugging message 
-.debug{
-  position:absolute;
-  width:80vw;
-  min-height:50vh;
-  top:50%;
-  left:50%;
-  background:#efefef;
-  color:black;
-  transform: translate(-50%, -50%)
-}
-
-
-

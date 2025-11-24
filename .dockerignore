@@ -8,3 +8,6 @@ vendor/
 
 # Mac DS_Store
 .DS_Store
+
+# Docker image specific
+/.github/

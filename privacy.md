@@ -13,7 +13,7 @@ Last updated: November 5, 2025
 This Privacy Policy applies to all websites operated by Simon Fraser University Library’s Digital Humanities Innovation Lab, including but not limited to all websites at the [dhil.lib.sfu.ca](dhil.lib.sfu.ca) subdomain, as well as
 
 - [https://womensprinthistoryproject.com](https://womensprinthistoryproject.com)
-- [https://grassrootschinesehistory.com](https://grassrootschinesehistory.com)
+- [https://grassrootschinesehistory.ca](https://grassrootschinesehistory.ca)
 
 These websites are managed by the same organizational unit and follow consistent data collection and usage practices. By accessing any of these websites, you agree to the terms outlined in this Privacy Policy.
 
